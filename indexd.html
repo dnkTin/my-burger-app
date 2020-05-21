@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+        }
+
+        p {
+            margin: 0;
+            border: 1px solid blue;
+            color: white;
+        }
+
+        p:nth-child(2n + 1) {
+            background: cyan;
+            color: black;
+        }
+
+        p:nth-child(2n) {
+            color: black;
+        }
+
+        p:nth-child(3n) {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>
+            left
+        </p>
+        <p>
+            Center
+        </p>
+        <p>
+            right
+        </p>
+    </div>
+</body>
+
+</html>
