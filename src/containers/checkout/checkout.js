@@ -4,25 +4,26 @@ import { Route } from 'react-router-dom';
 import ContactData from './ContactData/ContactData';
 class Checkout extends Component {
     state = {
-        ingredients: [],
+        ingredients: null,
         totalPrice: 0,
     }
     componentDidMount() {
-        let ingredients = [];
+        let ingredients = {};
         console.log(this.props.location.search);
         let query = new URLSearchParams(this.props.location.search);
         let totalPrice = 0;
         // console.log(query);
         for (let param of query.entries()) {
-            if (param === 'price') {
+            if (param[0] === 'price') {
                 totalPrice = param[1];
             } else {
                 ingredients[param[0]] = param[1];
             }
         }
+        console.log('total price' + totalPrice);
         this.setState({
             ingredients,
-            totalPrice
+            totalPrice: totalPrice
         });
     }
     checkoutCancelledHandler = () => {
@@ -45,7 +46,7 @@ class Checkout extends Component {
                     <ContactData
                         {...props}
                         ingredients={this.state.ingredients}
-                        price={this.state.totalPrice}
+                        totalPrice={this.state.totalPrice}
                     />} />
             </div>
         );
