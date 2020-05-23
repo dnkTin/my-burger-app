@@ -34,11 +34,12 @@ class Checkout extends Component {
         this.props.history.replace('/checkout/contact-data');
     }
     render() {
+        let chkSummary = this.state.ingredients ? <CheckoutSummary ingredients={this.state.ingredients}
+            checkoutCancelled={this.checkoutCancelledHandler}
+            checkoutContinued={this.checkoutContinuedHandler} /> : null
         return (
             <div>
-                <CheckoutSummary ingredients={this.state.ingredients}
-                    checkoutCancelled={this.checkoutCancelledHandler}
-                    checkoutContinued={this.checkoutContinuedHandler} />
+                {chkSummary}
                 {/* loading contact dât by route herer --> provide contactdata component in here */}
 
                 {/* passing data ingredient and price not from url param --> from props */}
